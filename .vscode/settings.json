@@ -1,0 +1,57 @@
+{
+    // Python interpreter path (adjust if using virtualenv)
+    "python.pythonPath": "${workspaceFolder}/venv/Scripts/python.exe",
+
+    // ----------------------------
+    // Linting (Flake8)
+    // ----------------------------
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.ignorePatterns": [
+        "migrations",
+        "__pycache__",
+        "env",
+        "venv"
+    ],
+
+    // ----------------------------
+    // Formatting (Black)
+    // ----------------------------
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+
+    // ----------------------------
+    // Files / Folders Exclusion
+    // ----------------------------
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.git": true,
+        "**/.vscode": true,
+        "**/env": true,
+        "**/venv": true
+    },
+
+    // ----------------------------
+    // Tailwind CSS IntelliSense
+    // ----------------------------
+    "tailwindCSS.includeLanguages": {
+        "html": "html",
+        "django-html": "html",
+        "javascript": "javascript",
+        "typescript": "typescript"
+    },
+    "tailwindCSS.emmetCompletions": true,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+
+    // ----------------------------
+    // Misc
+    // ----------------------------
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+}
