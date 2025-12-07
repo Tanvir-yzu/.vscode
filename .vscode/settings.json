@@ -1,57 +1,121 @@
 {
-    // Python interpreter path (adjust if using virtualenv)
-    "python.pythonPath": "${workspaceFolder}/venv/Scripts/python.exe",
+  // ===============================
+  // Python Path (for virtual env)
+  // ===============================
+  "python.defaultInterpreterPath": "venv/bin/python",
+  "python.terminal.activateEnvironment": true,
 
-    // ----------------------------
-    // Linting (Flake8)
-    // ----------------------------
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--max-line-length=120"
-    ],
-    "python.linting.ignorePatterns": [
-        "migrations",
-        "__pycache__",
-        "env",
-        "venv"
-    ],
+  // ===============================
+  // Formatting & Linting
+  // ===============================
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
 
-    // ----------------------------
-    // Formatting (Black)
-    // ----------------------------
-    "python.formatting.provider": "black",
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "ms-python.black-formatter",
+  // Disable conflicting formatters
+  "python.formatting.blackArgs": [],
+  "python.sortImports.args": ["--profile", "black"],
 
-    // ----------------------------
-    // Files / Folders Exclusion
-    // ----------------------------
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.git": true,
-        "**/.vscode": true,
-        "**/env": true,
-        "**/venv": true
+  // Linting: Use Flake8 + PyLance for type checking
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": false,
+
+  // Flake8 config (extend via setup.cfg or pyproject.toml)
+  "python.linting.flake8Args": [
+    "--max-line-length=88",
+    "--ignore=E203,W503,E501"
+  ],
+
+  // ===============================
+  // Type Checking (Pyright/Pylance)
+  // ===============================
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.analysis.diagnosticMode": "workspace",
+
+  // ===============================
+  // Django Support (via extension)
+  // ===============================
+  "django.snippets.enabled": true,
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+
+  // ===============================
+  // IntelliSense & Auto-complete
+  // ===============================
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+
+  // ===============================
+  // File Handling & Encoding
+  // ===============================
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // ===============================
+  // Exclude unnecessary folders
+  // ===============================
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/venv/**": true,
+    "**/__pycache__/**": true,
+    "**/.pytest_cache/**": true,
+    "**/migrations/**": true
+  },
+
+  "search.exclude": {
+    "**/venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/migrations": true,
+    "**/db.sqlite3": true
+  },
+
+  // ===============================
+  // Terminal Settings
+  // ===============================
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
     },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    }
+  },
 
-    // ----------------------------
-    // Tailwind CSS IntelliSense
-    // ----------------------------
-    "tailwindCSS.includeLanguages": {
-        "html": "html",
-        "django-html": "html",
-        "javascript": "javascript",
-        "typescript": "typescript"
-    },
-    "tailwindCSS.emmetCompletions": true,
-    "editor.quickSuggestions": {
-        "strings": true
-    },
+  // ===============================
+  // Editor Experience
+  // ===============================
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false,
 
-    // ----------------------------
-    // Misc
-    // ----------------------------
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true
+  // ===============================
+  // Extensions Recommendations (just metadata)
+  // Note: actual recommendations go in extensions.json
+  // ===============================
+  // This file focuses on behavior, not recommendations
 }
