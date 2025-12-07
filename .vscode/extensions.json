@@ -1,0 +1,46 @@
+{
+  "recommendations": [
+    // ===============================
+    // Essential Python Extensions
+    // ===============================
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+
+    // ===============================
+    // Django-Specific Extensions
+    // ===============================
+    "batisteo.vscode-django",
+    "wholroyd.jinja",
+
+    // ===============================
+    // Code Quality & Formatting
+    // ===============================
+    "ms-python.black-formatter",
+    "charliermarsh.ruff",
+    "usernamehw.errorlens",
+
+    // ===============================
+    // Database & API Tools
+    // ===============================
+    "cweijan.vscode-mysql-client2",
+    "rangav.vscode-thunder-client",
+
+    // ===============================
+    // Git & Version Control
+    // ===============================
+    "eamodio.gitlens",
+
+    // ===============================
+    // Utility & Productivity
+    // ===============================
+    "gruntfuggly.todo-tree",
+    "wayou.vscode-todo-highlight",
+    "christian-kohler.path-intellisense",
+    "ms-vscode.hexeditor"
+  ],
+  "unwantedRecommendations": [
+    // Extensions that might conflict or aren't needed
+    "ms-python.pylint",  // We use flake8/ruff instead
+    "visualstudioexptteam.vscodeintellicode"  // Can conflict with Pylance
+  ]
+}
